@@ -1,0 +1,15 @@
+artifact_uri: file:///home/jdanussi/Documents/DataTalksClub/mlops-zoomcamp/mlops-zoomcamp-2024/homework-02/mlruns/0/67429ae53a6e44e69567cca221bf0702/artifacts
+end_time: 1716320300367
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 67429ae53a6e44e69567cca221bf0702
+run_name: unique-pig-187
+run_uuid: 67429ae53a6e44e69567cca221bf0702
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716320278248
+status: 3
+tags: []
+user_id: jdanussi
