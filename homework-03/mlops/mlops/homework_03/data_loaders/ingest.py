@@ -19,6 +19,6 @@ def ingest_files(**kwargs) -> str:
         raise Exception(response.text)
 
     df = pd.read_parquet(BytesIO(response.content))
-    print(f'Total rows: {df.shape[0]}')
+    print(f'Dataframe total rows: {df.shape[0]}')
 
     return df

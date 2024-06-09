@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.linear_model import LinearRegression
 
+import pickle
 import mlflow
 
 if 'data_exporter' not in globals():
@@ -24,15 +25,23 @@ def train(df: pd.DataFrame):
         dv = DictVectorizer()
         X_train = dv.fit_transform(train_dicts)
         
+        # Save and log the DictVectorizer as an artifact
+        with open("models/dv.pkl", "wb") as f_out:
+            pickle.dump(X_train, f_out)
+        
+        mlflow.log_artifact("models/dv.pkl", artifact_path="preprocessor")
+        
         target = 'duration'
         y_train = df[target].values
         
         model = LinearRegression()
         model.fit(X_train, y_train)
 
-        print('Intercept Value: ', model.intercept_)
-
+        # Log the model as an artifact
         mlflow.sklearn.log_model(model, artifact_path="models")
+
+        print('Intercept Value: ', model.intercept_)
+        mlflow.log_metric("intercept", model.intercept_)
 
         return X_train, model
 
