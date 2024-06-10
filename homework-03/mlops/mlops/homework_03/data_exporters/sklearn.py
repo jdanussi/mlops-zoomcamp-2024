@@ -27,7 +27,7 @@ def train(df: pd.DataFrame):
         
         # Save and log the DictVectorizer as an artifact
         with open("models/dv.pkl", "wb") as f_out:
-            pickle.dump(X_train, f_out)
+            pickle.dump(dv, f_out)
         
         mlflow.log_artifact("models/dv.pkl", artifact_path="preprocessor")
         
