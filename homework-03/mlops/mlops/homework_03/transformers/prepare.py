@@ -1,6 +1,6 @@
 import pandas as pd
 
-from mlops.utils.data_preparation.cleaning_yellow import read_dataframe
+from mlops.homework_03.utils.cleaning import read_dataframe
 
 if 'transformer' not in globals():
     from mage_ai.data_preparation.decorators import transformer
