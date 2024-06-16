@@ -8,7 +8,7 @@ import pyarrow
 categorical = ['PULocationID', 'DOLocationID']
 
 
-def read_data(filename):
+def read_data(filename, year, month):
     df = pd.read_parquet(filename)
     
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
@@ -55,12 +55,11 @@ if __name__ == "__main__":
         
     year = 2023
     month = 5
-    data_type = 'yellow'
 
-    url = f'https://d37ci6vzurychx.cloudfront.net/trip-data/{data_type}_tripdata_{year:04d}-{month:02d}.parquet'
-    output_file = f'df_results_{data_type}_tripdata_{year:04d}-{month:02d}.parquet'
+    url = f'https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year:04d}-{month:02d}.parquet'
+    output_file = f'output/df_results_yellow_tripdata_{year:04d}-{month:02d}.parquet'
     
-    df = read_data(url)
+    df = read_data(url, year, month)
     df_result = apply_model(df)
     output_to_parquet(df_result, output_file)
     
