@@ -1,3 +1,2 @@
-output
 *.parquet
 /.ipynb_checkpoints
