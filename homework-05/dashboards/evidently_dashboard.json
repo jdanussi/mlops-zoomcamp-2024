@@ -722,7 +722,7 @@
           "table": "evidently_metrics"
         }
       ],
-      "title": "Pearson Correlation for fare_amount column",
+      "title": "Pearson Correlation between 'fare_amount' and 'trip_distance' columns",
       "type": "timeseries"
     }
   ],
@@ -740,6 +740,6 @@
   "timezone": "browser",
   "title": "Evidently Dashboard",
   "uid": "bdpomfkjzuwowd",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
